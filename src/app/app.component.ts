@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-16-template-driven-forms';
+  form = {
+    fullname: '',
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    acceptTerms: false,
+  };
+
+  onSubmit(): void {
+    console.log(JSON.stringify(this.form, null, 2));
+  }
+
+  onReset(form: NgForm): void {
+    form.reset();
+  }
 }
